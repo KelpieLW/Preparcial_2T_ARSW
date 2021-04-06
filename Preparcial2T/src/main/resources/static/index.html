@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Corona Virus Statistics</title>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    	<link rel="shortcut icon" href="#">
+
+    	<script src="/webjars/jquery/jquery.min.js"></script>
+    	<script type="text/javascript" src="js/app.js"></script>
+    	<script type="text/javascript" src="js/client.js"></script>
+
+    	<link rel="shortcut icon" type="image/ico" href="/aomx.ico"/>
+
+	</head>
+	<body onload="app.initialize()">
+
+		<div>
+			<h1>COVID-19 CORONAVIRUS ARSW</h1>
+		</div>
+
+		<div>
+			<table id="headerCountries">
+				<thead>
+					<tr>
+						<th>Country</th>
+						<th>Num Deaths</th>
+						<th>Num Infected</th>
+						<th>Num Cured</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+				
+			</table>			
+		</div>
+
+		<div>
+			
+			<input id="searchCountry" type="text">
+			<button id="buttonSendCountry" onclick="app.searchCountry($('#searchCountry').val())" >Send</button>
+			
+		</div>
+
+		<div id="tablesSearchBar">
+			<h3 id="countryTitleName"></h3>
+
+			<table id="specificCountryGeneral">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Number</th>						
+					</tr>
+				</thead>
+				<tbody id="specificCountryGeneralBody">
+					
+				</tbody>
+				
+			</table>
+
+		</div>
+
+		<div>
+			<table id="provincesTable">
+				<thead>
+					<tr>
+						<th>Region</th>
+						<th>Num deaths</th>						
+						<th>Num infected</th>
+						<th>Num cured</th>
+					</tr>
+
+				</thead>
+				<tbody id="provincesTableBody">
+					
+				</tbody>
+			</table>
+		</div>
+
+		<div id="map"></div>
+
+	</body>
+</html>
