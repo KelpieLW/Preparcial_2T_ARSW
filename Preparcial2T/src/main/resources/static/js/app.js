@@ -68,6 +68,10 @@ var app = (function (){
 				`
 			);	
 		}
+		// let countryLocation=[countryStats.location.latitude, countryStats.location.longitude];
+		// console.log(countryLocation);
+		let countryLocation={lat:countryStats.latitude, lng:countryStats.latitude}
+		plotMarkers(countryLocation);
 		
 	}
 
@@ -76,6 +80,8 @@ var app = (function (){
 		wipeTable("specificCountryGeneralBody");
 		apiClient.getTotalCountryStatistics(country, retriveGeneralCountrystats);
 		apiClient.getTotalCountryWithProvinceStatistics(country,retriveCountryAndProvincesStats);
+		
+
 	}
 
 	return{

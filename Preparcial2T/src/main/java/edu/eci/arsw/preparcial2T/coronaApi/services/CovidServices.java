@@ -3,6 +3,7 @@ package edu.eci.arsw.preparcial2T.coronaApi.services;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.preparcial2T.coronaApi.model.Country;
 import edu.eci.arsw.preparcial2T.coronaApi.model.CountryProvinces;
+import edu.eci.arsw.preparcial2T.coronaApi.model.Location;
 import edu.eci.arsw.preparcial2T.coronaApi.model.World;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,7 +41,9 @@ public class CovidServices {
 
     public Country getCountryWithProvincesStats(String country) throws UnirestException{
         JSONObject countryWithProvinceTotalStatJson = httpCovidService.getCoronaCountryProvinceTotalStats(country);
-        Country countryProvincesObject = new Country(countryWithProvinceTotalStatJson.getJSONArray("covid19Stats"));
+        Location countryLocation=new Location(httpCovidService.getCountryLocations(country));
+        Country countryProvincesObject = new Country(countryWithProvinceTotalStatJson.getJSONArray("covid19Stats"), countryLocation);
+
 
         return countryProvincesObject;
     }

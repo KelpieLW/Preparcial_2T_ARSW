@@ -33,6 +33,20 @@ public class HttpCovidServices {
         return new JSONObject(response.getBody()).getJSONObject("data");
     }
 
+    public JSONArray getCountryLocations(String country)throws UnirestException{
+        HttpResponse<String> response = Unirest.get("https://restcountries-v1.p.rapidapi.com/name/"+country)
+                .header("x-rapidapi-key", "7fc63b0c57msh1ba14142cfc0fddp1d8c42jsn5bb007619597")
+                .header("x-rapidapi-host", "restcountries-v1.p.rapidapi.com")
+                .asString();
+
+        JSONObject jsonObjectLocation = new JSONArray(response.getBody()).getJSONObject(0);
+        JSONArray responseLocation = jsonObjectLocation.getJSONArray("latlng");
+
+        return responseLocation;
+
+    }
+
+
 
 
 }

@@ -10,6 +10,7 @@ public class Country {
     private Integer recovered;
     private Integer dead;
     private ArrayList <Province>provinces = new ArrayList<Province>();
+    private Location location;
     public Country(){
 
     }
@@ -21,7 +22,7 @@ public class Country {
         this.dead=dead;
     }
 
-    public Country(JSONArray jsonArrayProvinces){
+    public Country(JSONArray jsonArrayProvinces, Location location){
         for (int i=0;i<jsonArrayProvinces.length();i++){
             Province tempProvince = new Province(
                     jsonArrayProvinces.getJSONObject(i).isNull("city")? null:jsonArrayProvinces.getJSONObject(i).getString("city"),
@@ -32,9 +33,17 @@ public class Country {
             );
 
             provinces.add(tempProvince);
-
         }
+        this.location=location;
 
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public ArrayList<Province> getProvinces() {
